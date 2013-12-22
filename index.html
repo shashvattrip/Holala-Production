@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Taskr</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/checkbox/style.css">
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+</head>
+
+<style>
+
+	/* set the background-color to red */
+.navbar-inner
+{
+    background-color: #259541;
+    /* remove the gradient */
+    background-image: none;
+    /* set font color to white */
+    color: white;
+    border:none;
+    box-shadow: none;
+}   
+
+/* menu items */
+
+    /* set the background of the menu items to pink and default color to white */
+
+        .navbar .nav > li > a {
+          background-color: pink;   
+          color: white;
+
+        }
+
+
+    /* set hover and focus to lightblue */
+    .navbar .nav > li > a:focus,
+    .navbar .nav > li > a:hover {
+      background-color: lightblue;
+      color: white;
+    }
+        /* set active item to darkgreen */
+        .navbar .nav > .active > a,
+        .navbar .nav > .active > a:hover,
+        .navbar .nav > .active > a:focus {
+
+          background-color: darkgreen;
+          color: white;
+        }
+
+    .navbar-inner .brand
+    {
+    	color:white;
+    	font-weight: normal;
+    	font-size: 22px;
+    }
+
+    .navbar-inner
+    {
+    	height:40px;
+    }
+
+	body
+	{
+		margin:0px;
+		/*overflow-y:hidden;*/
+
+	}
+
+	.span1,.span2,.span3,.span4,.span5,.span6,.span7,.span8
+	{
+		margin:0px;
+	}
+
+	.row
+	{
+		margin:0px;
+	}
+
+</style>
+<body>
+	
+
+		<!-- UpperNavBar -->
+	<div class="container-fluid" style="width:1366px;height:40px;margin:0px;background-color:#259541;padding:0px;">
+		
+	
+		<div class="navbar" style="margin-bottom:0px;">
+		  	<div class="navbar-inner">
+		    	<a class="brand" href="#">Taskr</a>
+		    	<div class="nav">
+		    		<form class="form-search">
+  						<input type="text" class="input-medium">
+  					</form>
+		    	</div>
+		  	</div>
+		</div>
+	</div><!--  UpperNavBar Ends -->
+
+	<!-- Rest of the content -->
+	<div class="container-fluid" style="width:1366px;height:558px;background-color:#ffffff;margin:0px;padding:0px;">
+		
+		<!-- Left NavBar -->
+		<div style="left:0px;top:40px;width:290px;float:left;height:100%;margin-left:-268px;margin-right:0px;background-color:#E3E3E3;border-right:2px solid #A4A4A4;">
+			
+			<!-- Project Name -->
+			<div class="row" style="background-color:#E3E3E3;margin:0px;height:40px;">
+				<div style="height:40px;width:100%;">
+					<div id="ProjectName" style="color:#259541;float:left;padding-left:8px;line-height:40px;font-size:20px;">
+						.Project 1
+					</div>
+					
+					<!-- Place for the arrow -->
+					<div style="width:40px;height:40px;float:right;">
+						<img src="images/1.png">
+					</div>
+				</div>
+			</div>
+
+			<div class="row" style="background-color:#259541;height:4px;width:100%;">
+
+			</div>
+
+			<!-- My Tasks + Inbox + Display Pic -->
+			<div class="row" style="width:100%;background-color:#E3E3E3;margin:0px;height:70px;padding-top:4px;">
+				<div style="height:70px;width:100%;background-color:#ffffff;">
+					
+					<!-- My Tasks -->
+					<div style="background-color:#ffffff;height:32px;width:74%;position:relative;top:5px;left:4px;float:left;padding-left:70px;">
+						<div style="width:100%;margin:0px;">my tasks
+							<img src="images/2.png" style="float:right;">
+						</div>
+						
+					</div>
+
+					<!-- Inbox -->
+					<div style="background-color:#EEEEEE;height:32px;width:74%;position:relative;top:5px;left:4px;float:left;padding-left:70px;">
+						inbox
+					</div>
+
+					<!-- Display Picture -->
+					<div style="height:52px;width:50px;background-color:#868686;position:relative;top:9px;left:8px;margin:0px;">
+
+					</div>
+
+				</div>
+			</div>
+
+			<div class="row" style="height:8px;width:100%;background-color:ffffff;">
+			</div>
+
+			<!-- Show More -->
+			<div class="row" style="background-color:#EEEEEE;height:32px;width:100%;border-top:solid 2px #A4A4A4;border-bottom:solid 2px #A4A4A4;line-height:32px;font-size:14px;text-align:center;">
+				show more projects...
+			</div>
+
+			<!-- Blank Space -->
+			<!-- <div class="row" style="background-color:#E3E3E3;height:85px;width:100%;border-bottom:solid 2px #A4A4A4;">
+			</div> -->
+
+			<!-- Add People to project -->
+			<div class="row" style="background-color:#EEEEEE;height:80px;width:100%;">
+				<span>add people to project...</span>
+				<br>
+				<input type="text" class="input-medium search-query">
+			</div>
+
+			<br>
+			<!-- Teammates -->
+			<div class="row" style="background-color:#E3E3E3;height:96px;width:100%;">
+				<div class="row" style="height:32px;background-color:#E4E4E4;border-bottom:solid 1px #A4A4A4;">
+					team mate 1
+				</div>
+				<div class="row" style="height:32px;background-color:#E4E4E4;border-bottom:solid 1px #A4A4A4;">
+					team mate 1
+				</div>
+				<div class="row" style="height:32px;background-color:#E4E4E4;border-bottom:solid 1px #A4A4A4;">
+					team mate 1
+				</div>
+				<div class="row" style="height:32px;background-color:#E4E4E4;">
+					more...
+				</div>
+			</div>
+
+			<br>
+			<br>
+			
+			
+			<div class="row" style="background-color:#259541;height:4px;width:100%;">
+			</div>
+
+			<!-- add Project -->
+			<div class="row" style="background-color:#EEEEEE;height:36px;width:100%;border-top:solid 1px #A4A4A4;border-bottom:solid 1px #A4A4A4;">
+				add project +
+			</div>
+
+
+			<!-- leftnav footer -->
+			<div class="row" style="background-color:#259541;height:75px;width:100%;">
+				feedback | contact us | about us
+			</div>
+
+
+		</div>
+
+		<!-- Center Pane -->
+		<div style="width:586px;margin-left:290px;top:40px;height:100%;margin-right:0px;background-color:#000000;">
+			<!-- username -->
+			<div class="row" style="background-color:#ffffff;margin:0px;height:44px;border-bottom:1px solid #A4A4A4;padding:6px;padding-left:32px;overflow:hidden;font-size:22px;">
+				<!-- Display Picture -->
+				<div style="height:45px;width:45px;background-color:#868686;float:left;">
+				</div>
+				
+				<!-- username -->
+				<div style="height:44px;line-height:44px;float:left;padding-left:10px;">
+					shashvat tripathi's
+				</div>
+
+				<div style="height:44px;line-height:44px;float:left;padding-left:10px;">
+					Taskrr
+				</div>
+
+				<div style="height:44px;line-height:44px;float:left;padding-left:10px;">
+					tasks
+				</div>
+			</div>
+
+			<!-- sort and filter bar -->
+			<div class="row" style="background-color:#EEEEEE;height:30px;border-bottom:1px solid #A4A4A4;">
+
+			</div>
+
+			
+			<!-- tasks --> <!-- Pane width:586px -->
+			<div class="row" style="background-color:#ffffff;border-bottom:1px solid #A4A4A4;border-top:2px solid #A4A4A4;">
+				
+				<!-- individual task -->
+				<div class="row" style="background-color:#ffffff;height:24px;border-bottom:1px solid #A4A4A4;padding:4px;overflow:hidden;">
+					
+					<div style="height:24px;width:24px;float:left;line-height:24px;border-right:1px solid #A4A4A4;">
+						1
+					</div>
+
+					<div style="padding-top:2px;height:20px;width:24px;margin-left:10px;float:left;">
+						<input type="checkbox" id="checkbox01" class="css-checkbox lrg" checked="checked">
+						<label for="checkbox01" name="checkbox01_lbl" class="css-label lrg vlad"></label>
+					</div>
+
+					<div style="width:510px;float:right;line-height:24px;font-size:14px;">
+						<p style="overflow:hidden;">Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-</p>
+					</div>
+				</div>
+
+				<!-- individual task --> 
+				<div class="row" style="background-color:#E3E3E3;height:24px;border-bottom:1px solid #A4A4A4;padding:4px;overflow:hidden;">
+					
+					<div style="height:24px;width:24px;float:left;line-height:24px;border-right:1px solid #A4A4A4;">
+						1
+					</div>
+
+					<div style="padding-top:2px;height:20px;width:24px;margin-left:10px;float:left;">
+						<input type="checkbox" id="checkbox02" class="css-checkbox lrg" checked="checked">
+						<label for="checkbox02" name="checkbox02_lbl" class="css-label lrg vlad"></label>
+					</div>
+
+					<div style="width:510px;float:right;line-height:24px;font-size:14px;">
+						<p style="overflow:hidden;">Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-</p>
+					</div>
+				</div>
+
+				<!-- individual task -->
+				<div class="row" style="background-color:#ffffff;height:24px;border-bottom:1px solid #A4A4A4;padding:4px;overflow:hidden;">
+					
+					<div style="height:24px;width:24px;float:left;line-height:24px;border-right:1px solid #A4A4A4;">
+						1
+					</div>
+
+					<div style="padding-top:2px;height:20px;width:24px;margin-left:10px;float:left;">
+						<input type="checkbox" id="checkbox03" class="css-checkbox lrg" checked="checked">
+						<label for="checkbox03" name="checkbox03_lbl" class="css-label lrg vlad"></label>
+					</div>
+
+					<div style="width:510px;float:right;line-height:24px;font-size:14px;">
+						<p style="overflow:hidden;">Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-</p>
+					</div>
+				</div>
+
+				<!-- individual task -->
+				<div class="row" style="background-color:#E3E3E3;height:24px;border-bottom:1px solid #A4A4A4;padding:4px;overflow:hidden;">
+					
+					<div style="height:24px;width:24px;float:left;line-height:24px;border-right:1px solid #A4A4A4;">
+						1
+					</div>
+
+					<div style="padding-top:2px;height:20px;width:24px;margin-left:10px;float:left;">
+						<input type="checkbox" id="checkbox04" class="css-checkbox lrg" checked="checked">
+						<label for="checkbox04" name="checkbox04_lbl" class="css-label lrg vlad"></label>
+					</div>
+
+					<div style="width:510px;float:right;line-height:24px;font-size:14px;">
+						<p style="overflow:hidden;">Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-</p>
+					</div>
+				</div>
+
+			</div>
+				
+		</div>
+
+		<!-- Task Pane -->
+		<div style="position:absolute;top:40px;left:876px;width:488px;height:558px;;margin:0px;background-color:#6BBD7F;border-left:2px solid #A4A4A4;">
+				
+				<!-- Occupied Area of task Pane, Dynamic Height -->
+				<div style="height:400px;background-color:#EEEEEE;border-top:8px solid #A4A4A4;">
+					
+					<!-- nav1 -->
+					<div class="row" style="background-color:#E3E3E3;height:24px;border-bottom:1px solid #A4A4A4;border-top:1px solid #A4A4A4;padding:4px;overflow:hidden;">
+					
+						
+					</div>
+
+					<!-- Task Details-1 -->
+					<div class="row" style="background-color:#ffffff;height:100px;border-bottom:1px solid #A4A4A4;border-top:1px solid #A4A4A4;padding:4px;overflow:hidden;">
+					<p>project name : Taskr</p>
+					<p>Task Name</p>
+					<p>Details</p>
+						
+					</div>
+
+					<!-- Comments -->
+					<div class="row" style="background-color:#E3E3E3;height:100px;border-bottom:1px solid #A4A4A4;border-top:1px solid #A4A4A4;padding:4px;overflow:hidden;">
+						Comments
+						
+					</div>
+
+					<!-- Followers -->
+					<div class="row" style="background-color:#ffffff;height:30px;border-bottom:1px solid #A4A4A4;border-top:1px solid #A4A4A4;padding:4px;overflow:hidden;">
+						Followers
+						
+					</div>
+
+				</div>
+		</div>
+
+	</div>
+		
+	
+
+	
+
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+</body>
+</html>
