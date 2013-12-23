@@ -4,6 +4,12 @@
 // Add Tags on Individual Tasks
 // Add Filter based on Tags
 
+
+hello=function()
+{
+    console.log("Hello");
+}
+
 var myapp=angular.module('myapp',['ui.state']);
 
 myapp.controller('DataCtrl',function($scope,$http,$stateParams,JSONData,GetTags,GetMembers)
@@ -18,13 +24,13 @@ myapp.controller('DataCtrl',function($scope,$http,$stateParams,JSONData,GetTags,
     //     });
 
     $scope.JsonData=JSONData;
+    $scope.state=$stateParams;
     $scope.routeTID=$stateParams.TID;
     $scope.routePID=$stateParams.PID;
 
     $scope.arrayOfTags=GetTags;
     $scope.arrayOfMembers=GetMembers;
     
-
     $scope.SaveTask=function(TID, PID)
     {
         console.log($scope.JsonData[TID-1].TN);
@@ -34,44 +40,14 @@ myapp.controller('DataCtrl',function($scope,$http,$stateParams,JSONData,GetTags,
         console.log($scope.JsonData[TID-1].star);
     }
 
-    $scope.isStarred=function(TID)
+    $scope.isChecked=function(TID)
     {
-        // console.log($scope.JsonData[TID-1].star);
-        if($scope.JsonData[TID-1].star===1)
-            return 1;
-        else
-            return 0;
+        // console.log($scope.JsonData[TID-1].done);
+        return ($scope.JsonData[TID-1].done);
     }
+   
 
-    $scope.logMessage=function()
-    {
-        var message="Shashvat Rocks!"
-        var client=new XMLHttpRequest();
-        client.open("GET","JsonTasks.json");
-        client.setRequestHeader("Content-Type","text/plain;charset=UTF-8");
-        client.send(message);
-    }
     
-    $scope.sendJSON=function()
-    {
-        var data;
-        var path="JsonTasks.json";
-        var xhr=new XMLHttpRequest();
-        xhr.onreadystatechange = function()
-        {
-            if (xhr.readyState === 4 && xhr.status === 200) 
-            {
-                JSON.parse(xhr.responseText);
-                console.log("JSON loaded");
-                console.log(xhr.responseText);
-                data=xhr.responseText;
-            }
-        }
-        
-        xhr.open("GET",path,false);
-        xhr.send();
-               
-    }
 });
 
 
@@ -90,67 +66,31 @@ myapp.config(function($stateProvider,$urlRouterProvider,$routeProvider)
         {
             "ProjectPane":
             {
-            templateUrl:"partials/Tasks.html",
+            templateUrl:"css/partials/Tasks.html",
             controller:"DataCtrl"
-            }
+            }            
         }
       
     })
-        .state('route1.task',
+
+
+
+        // .state('route1.task',
+            .state('route1.task',
             {
                 url:"/task/:TID",
-                templateUrl:"partials/IndiTasks.html",
-                controller:"DataCtrl"
+                views:
+                {
+                    // The @ suffix addresses the view in the higher state
+                    "TaskPane@": 
+                    {
+                        templateUrl:"css/partials/IndiTasks.html",
+                        controller:"DataCtrl"        
+                    }
+                    
+                }
+                
             })
 
-    .state('route2',
-    {
-        url:"/route2",
-        views:
-        {
-            "ProjectPane":
-            {
-              templateUrl:"partials/route2.list.html",
-              controller:"DataCtrl"
-            }
 
-          // "TaskPane":{templateUrl:"partials/testing.html"}
-        }
-      
-    })
-        .state('route2.task',
-            {
-              url:"/task",
-              templateUrl:"partials/testing2.html"
-              // views:
-              // {
-              //   "TaskPane":{templateUrl:"partials/testing.html"}
-              // }
-            })
-        
-
-    .state('route3',
-    {
-        url:"/route3",
-        views:
-        {
-            "ProjectPane":
-            {
-              templateUrl:"partials/route3.list.html", 
-              controller:"DataCtrl"
-            }
-
-              // "TaskPane":{templateUrl:"partials/testing.html"}
-        }
-      
-    })
-        .state('route3.task',
-            {
-                url:"/task",
-                templateUrl:"partials/testing2.html"
-                // views:
-                // {
-                //   "TaskPane":{templateUrl:"partials/testing.html"}
-                // }
-            })
-})
+});

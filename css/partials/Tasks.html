@@ -1,0 +1,50 @@
+<!-- route1.list.html -->
+
+  		
+  		<!-- <ul class="dropdown-menu">
+    		<a href="" ng-repeat="tag in arrayOfTags"><li>{{tag}}</li></a>
+  		</ul> -->
+	
+		<!-- <a href="" ng-repeat="ppl in arrayOfMembers"><li>{{ppl}}</li></a> -->
+	
+
+
+<!-- individual task -->
+<div ng-repeat="item in JsonData | filter:{PID:routePID}" class="row" style="background-color:#ffffff;height:24px;border-bottom:1px solid #A4A4A4;border-top:1px solid #A4A4A4;padding:4px;overflow:hidden;">
+	
+	<div style="height:24px;width:24px;float:left;line-height:24px;border-right:1px solid #A4A4A4;">
+		{{item.TID}}
+	</div>
+
+	<div style="padding-top:2px;height:20px;width:24px;margin-left:10px;float:left;">
+		<div ng-switch on="isChecked(item.TID)">
+			<div ng-switch-when="0">
+				<input type="checkbox" id="checkbox{{item.TID}}" class="css-checkbox lrg">
+				<label for="checkbox{{item.TID}}" name="checkbox{{item.TID}}_lbl" class="css-label lrg vlad"></label>
+			</div>
+
+			<div ng-switch-when="1">
+				<input type="checkbox" id="checkbox{{item.TID}}" class="css-checkbox lrg" checked="checked">
+				<label for="checkbox{{item.TID}}" name="checkbox{{item.TID}}_lbl" class="css-label lrg vlad"></label>
+			</div>
+			
+		</div>
+
+		<!-- <input type="checkbox" id="checkbox{{item.TID}}" class="css-checkbox lrg">
+		<label for="checkbox{{item.TID}}" name="checkbox{{item.TID}}_lbl" class="css-label lrg vlad"></label> -->
+
+	</div>
+
+	<div style="width:490px;float:right;line-height:24px;font-size:14px;">
+		<input value="{{item.TN}}" class="input-large">
+		<a href="#/{{routePID}}/task/{{item.TID}}"><button class="btn btn-info btn-small">Details</button></a>
+		<button class="btn btn-success btn-small">Save</button>
+	</div>
+</div>
+
+
+
+
+
+
+

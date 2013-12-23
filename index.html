@@ -1,7 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app="myapp" lang="en">
 <head>
 	<title>Taskr</title>
+	<script src="js/App/angular.min.js"></script>
+	<script src="js/App/angular-ui-router.js"></script>
+
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/checkbox/style.css">
 	<script type="text/javascript" src="js/jquery.min.js"></script>
@@ -62,7 +65,7 @@
 	body
 	{
 		margin:0px;
-		/*overflow-y:hidden;*/
+		overflow-y:hidden;
 
 	}
 
@@ -77,7 +80,7 @@
 	}
 
 </style>
-<body>
+<body ng-controller="DataCtrl">
 	
 
 		<!-- UpperNavBar -->
@@ -97,7 +100,7 @@
 	</div><!--  UpperNavBar Ends -->
 
 	<!-- Rest of the content -->
-	<div class="container-fluid" style="width:1366px;height:558px;background-color:#ffffff;margin:0px;padding:0px;">
+	<div class="container-fluid" style="width:1366px;height:600px;background-color:#ffffff;margin:0px;padding:0px;">
 		
 		<!-- Left NavBar -->
 		<div style="left:0px;top:40px;width:290px;float:left;height:100%;margin-left:-268px;margin-right:0px;background-color:#E3E3E3;border-right:2px solid #A4A4A4;">
@@ -126,7 +129,7 @@
 					
 					<!-- My Tasks -->
 					<div style="background-color:#ffffff;height:32px;width:74%;position:relative;top:5px;left:4px;float:left;padding-left:70px;">
-						<div style="width:100%;margin:0px;">my tasks
+						<div style="width:100%;margin:0px;"><a href="#/">my tasks</a>
 							<img src="images/2.png" style="float:right;">
 						</div>
 						
@@ -149,8 +152,12 @@
 			</div>
 
 			<!-- Show More -->
-			<div class="row" style="background-color:#EEEEEE;height:32px;width:100%;border-top:solid 2px #A4A4A4;border-bottom:solid 2px #A4A4A4;line-height:32px;font-size:14px;text-align:center;">
-				show more projects...
+			<div class="row" style="background-color:#EEEEEE;height:92px;width:100%;border-top:solid 2px #A4A4A4;border-bottom:solid 2px #A4A4A4;line-height:32px;font-size:14px;text-align:center;">
+
+				<a href="#/1">Project 1</a><br>
+				<a href="#/2">Project 2</a><br>
+				<a href="#/3">Project 3</a><br>
+
 			</div>
 
 			<!-- Blank Space -->
@@ -161,7 +168,8 @@
 			<div class="row" style="background-color:#EEEEEE;height:80px;width:100%;">
 				<span>add people to project...</span>
 				<br>
-				<input type="text" class="input-medium search-query">
+				<input type="text" class="input-medium">
+				<button ng-click="isChecked()">isChecked</button>
 			</div>
 
 			<br>
@@ -203,7 +211,7 @@
 		</div>
 
 		<!-- Center Pane -->
-		<div style="width:586px;margin-left:290px;top:40px;height:100%;margin-right:0px;background-color:#000000;">
+		<div style="width:586px;margin-left:290px;top:40px;height:584px;margin-right:0px;background-color:#000000;">
 			<!-- username -->
 			<div class="row" style="background-color:#ffffff;margin:0px;height:44px;border-bottom:1px solid #A4A4A4;padding:6px;padding-left:32px;overflow:hidden;font-size:22px;">
 				<!-- Display Picture -->
@@ -230,122 +238,28 @@
 			</div>
 
 			
-			<!-- tasks --> <!-- Pane width:586px -->
-			<div class="row" style="background-color:#ffffff;border-bottom:1px solid #A4A4A4;border-top:2px solid #A4A4A4;">
+			<!-- Dynamically created tasks --> <!-- Pane width:586px -->
+			<div ui-view="ProjectPane" class="row" style="height:470px;background-color:#123456;border-bottom:1px solid #A4A4A4;border-top:2px solid #A4A4A4;overflow:auto;">
+				Loading Tasks...
 				
-				<!-- individual task -->
-				<div class="row" style="background-color:#ffffff;height:24px;border-bottom:1px solid #A4A4A4;padding:4px;overflow:hidden;">
-					
-					<div style="height:24px;width:24px;float:left;line-height:24px;border-right:1px solid #A4A4A4;">
-						1
-					</div>
-
-					<div style="padding-top:2px;height:20px;width:24px;margin-left:10px;float:left;">
-						<input type="checkbox" id="checkbox01" class="css-checkbox lrg" checked="checked">
-						<label for="checkbox01" name="checkbox01_lbl" class="css-label lrg vlad"></label>
-					</div>
-
-					<div style="width:510px;float:right;line-height:24px;font-size:14px;">
-						<p style="overflow:hidden;">Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-</p>
-					</div>
-				</div>
-
-				<!-- individual task --> 
-				<div class="row" style="background-color:#E3E3E3;height:24px;border-bottom:1px solid #A4A4A4;padding:4px;overflow:hidden;">
-					
-					<div style="height:24px;width:24px;float:left;line-height:24px;border-right:1px solid #A4A4A4;">
-						1
-					</div>
-
-					<div style="padding-top:2px;height:20px;width:24px;margin-left:10px;float:left;">
-						<input type="checkbox" id="checkbox02" class="css-checkbox lrg" checked="checked">
-						<label for="checkbox02" name="checkbox02_lbl" class="css-label lrg vlad"></label>
-					</div>
-
-					<div style="width:510px;float:right;line-height:24px;font-size:14px;">
-						<p style="overflow:hidden;">Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-</p>
-					</div>
-				</div>
-
-				<!-- individual task -->
-				<div class="row" style="background-color:#ffffff;height:24px;border-bottom:1px solid #A4A4A4;padding:4px;overflow:hidden;">
-					
-					<div style="height:24px;width:24px;float:left;line-height:24px;border-right:1px solid #A4A4A4;">
-						1
-					</div>
-
-					<div style="padding-top:2px;height:20px;width:24px;margin-left:10px;float:left;">
-						<input type="checkbox" id="checkbox03" class="css-checkbox lrg" checked="checked">
-						<label for="checkbox03" name="checkbox03_lbl" class="css-label lrg vlad"></label>
-					</div>
-
-					<div style="width:510px;float:right;line-height:24px;font-size:14px;">
-						<p style="overflow:hidden;">Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-</p>
-					</div>
-				</div>
-
-				<!-- individual task -->
-				<div class="row" style="background-color:#E3E3E3;height:24px;border-bottom:1px solid #A4A4A4;padding:4px;overflow:hidden;">
-					
-					<div style="height:24px;width:24px;float:left;line-height:24px;border-right:1px solid #A4A4A4;">
-						1
-					</div>
-
-					<div style="padding-top:2px;height:20px;width:24px;margin-left:10px;float:left;">
-						<input type="checkbox" id="checkbox04" class="css-checkbox lrg" checked="checked">
-						<label for="checkbox04" name="checkbox04_lbl" class="css-label lrg vlad"></label>
-					</div>
-
-					<div style="width:510px;float:right;line-height:24px;font-size:14px;">
-						<p style="overflow:hidden;">Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-Task1-</p>
-					</div>
-				</div>
+				
 
 			</div>
 				
 		</div>
 
 		<!-- Task Pane -->
-		<div style="position:absolute;top:40px;left:876px;width:488px;height:558px;;margin:0px;background-color:#6BBD7F;border-left:2px solid #A4A4A4;">
+		<div ui-view="TaskPane" style="position:absolute;top:40px;left:876px;width:488px;height:558px;;margin:0px;background-color:#6BBD7F;border-left:2px solid #A4A4A4;">
 				
-				<!-- Occupied Area of task Pane, Dynamic Height -->
-				<div style="height:400px;background-color:#EEEEEE;border-top:8px solid #A4A4A4;">
-					
-					<!-- nav1 -->
-					<div class="row" style="background-color:#E3E3E3;height:24px;border-bottom:1px solid #A4A4A4;border-top:1px solid #A4A4A4;padding:4px;overflow:hidden;">
-					
-						
-					</div>
-
-					<!-- Task Details-1 -->
-					<div class="row" style="background-color:#ffffff;height:100px;border-bottom:1px solid #A4A4A4;border-top:1px solid #A4A4A4;padding:4px;overflow:hidden;">
-					<p>project name : Taskr</p>
-					<p>Task Name</p>
-					<p>Details</p>
-						
-					</div>
-
-					<!-- Comments -->
-					<div class="row" style="background-color:#E3E3E3;height:100px;border-bottom:1px solid #A4A4A4;border-top:1px solid #A4A4A4;padding:4px;overflow:hidden;">
-						Comments
-						
-					</div>
-
-					<!-- Followers -->
-					<div class="row" style="background-color:#ffffff;height:30px;border-bottom:1px solid #A4A4A4;border-top:1px solid #A4A4A4;padding:4px;overflow:hidden;">
-						Followers
-						
-					</div>
-
-				</div>
+				
 		</div>
 
 	</div>
 		
 	
 
-	
-
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/App/myApp.js"></script>
+	<script type="text/javascript" src="js/App/services/eventData.js"></script>
 </body>
 </html>
